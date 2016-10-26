@@ -1,8 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Score } from './score';
+
 @Component({
-  selector: 'nodehello',
-  template: '<h1>No, de helló!</h1>'
+  selector: 'app',
+  templateUrl: 'app/app.component.html',
 })
-export class AppComponent { }
+export class AppComponent {
+    scores: Score[] = [];
 
-
+    saveScore(score:Score, ketto:number) : void {
+        this.scores.push(score)
+        console.log(this.scores, ketto);
+    }
+} 
