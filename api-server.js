@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 app.post('/score', function (req, res) {
 	console.log(req.body);
 	var score = { 
-		score1: req.body.score1, 
-		score2: req.body.score2 
+		goals1: req.body.goals1, 
+		goals2: req.body.goals2 
 	};
 
 	store.add(score, function(err) {
