@@ -1,4 +1,14 @@
-<h2>Scores will be here</h2>
-<ul>
-    <li *ngFor="let score of scores">{{score.goals1}} : {{score.goals2}}</li>
-</ul>
+<h1>Scores</h1>
+
+<table>
+	<thead>
+		<th> Match </th>
+		<th> Score1 </th>
+		<th> Score2 </th>
+	</thead>
+	<tr *ngFor="let score of scores; let i = index">
+		<td> {{i}} </td>
+		<td> {{score.goals1}} </td>
+		<td> {{score.goals2}} </td>
+	<tr>
+</table>

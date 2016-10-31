@@ -1,4 +1,4 @@
 <h1>Table soccer scores</h1>
 
 <gameForm (saveScore)="saveScore($event)"></gameForm>
-<scorelist [scores]="scores"></scorelist>
+<scorelist *ngIf="scores.length > 0" [scores]="scores"></scorelist>
