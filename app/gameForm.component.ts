@@ -6,7 +6,6 @@ import { Score } from './score';
   templateUrl: 'app/gameForm.component.html',
 })
 export class GameFormComponent {
-    @Input() title = "Default form title";
     @Output() saveScore = new EventEmitter<Score>();
 
     goals1 : number;
