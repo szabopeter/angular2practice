@@ -6,5 +6,5 @@ import { Score } from './score';
   templateUrl: 'app/scorelist.component.html',
 })
 export class ScoreListComponent {
-    @Input() scores = [];
+    @Input() scores: Score[];
 } 
