@@ -16,8 +16,8 @@ app.post('/api/score', function (req, res) {
 		if (err) {
 			throw err;
 		}
+		res.sendStatus(200);
 	});
-	res.sendStatus(200);
 });
 
 app.get('/api/scores', function (req, res) {
