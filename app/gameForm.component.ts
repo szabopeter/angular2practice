@@ -2,11 +2,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Score } from './score';
 
 @Component({
-  selector: 'game',
-  templateUrl: 'app/game.component.html',
+  selector: 'gameForm',
+  templateUrl: 'app/gameForm.component.html',
 })
-export class GameComponent {
-    @Input() name = "Jani";
+export class GameFormComponent {
+    @Input() title = "Default form title";
     @Output() saveScore = new EventEmitter<Score>();
 
     goals1 : number;

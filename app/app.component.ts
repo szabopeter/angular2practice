@@ -8,8 +8,8 @@ import { Score } from './score';
 export class AppComponent {
     scores: Score[] = [];
 
-    saveScore(score:Score, ketto:number) : void {
+    saveScore(score:Score) : void {
         this.scores.push(score)
-        console.log(this.scores, ketto);
+        console.log(this.scores);
     }
 } 
