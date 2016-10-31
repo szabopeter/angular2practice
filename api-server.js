@@ -5,7 +5,7 @@ var store = require('json-fs-store')();
 
 app.use(bodyParser.json());
 
-app.post('/score', function (req, res) {
+app.post('/api/score', function (req, res) {
 	console.log(req.body);
 	var score = { 
 		goals1: req.body.goals1, 
@@ -20,7 +20,7 @@ app.post('/score', function (req, res) {
 	res.sendStatus(200);
 });
 
-app.get('/scores', function (req, res) {
+app.get('/api/scores', function (req, res) {
 	store.list(function(err, scores) {
 		if (err) {
 			throw err;
