@@ -11,5 +11,6 @@ npm i
 npm start
 ```
 
-The application is running on ```http://localhost:3000``` and BrowserSync is running on ```http://localhost:3001```.
-
+The application is running on ```http://localhost:3000```
+BrowserSync is running on ```http://localhost:3001```
+The rest API is at ```http://localhost:4000```
