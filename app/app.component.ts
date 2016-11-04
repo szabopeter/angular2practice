@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 import { Score } from './score';
 import { ScoreRepositoryService } from './services/scoreRepositoryService';
 
@@ -9,6 +10,7 @@ import { ScoreRepositoryService } from './services/scoreRepositoryService';
 export class AppComponent {
 	scores: Score[] = [];
 	scoreRepository : ScoreRepositoryService;
+	nextScoreId: string;
 	
 	constructor(scoreRepositoryService: ScoreRepositoryService) {
 		this.scoreRepository = scoreRepositoryService;
@@ -16,6 +18,7 @@ export class AppComponent {
 
 	ngOnInit() {
 		this.loadScoresFromServer();
+		this.generateNextScoreId();
 	}
 
 	loadScoresFromServer() {
@@ -27,6 +30,13 @@ export class AppComponent {
 	saveScore(score:Score) : void {
 		this.scores.push(score);
 		this.scoreRepository.add(score)
-			.then(this.loadScoresFromServer);
+			.then(() => {
+				this.generateNextScoreId();
+				this.loadScoresFromServer();
+			});
+	}
+
+	generateNextScoreId():void {
+		this.nextScoreId = UUID.UUID();
 	}
 }

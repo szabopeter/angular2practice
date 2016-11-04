@@ -48,3 +48,4 @@ typings
 # TS map files
 *.js.map
 
+/store

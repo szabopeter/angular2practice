@@ -2,7 +2,9 @@
   "name": "nodehello",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" \"node api-server.js\"",
+    "clientstart": "tsc && concurrently \"tsc -w\" \"lite-server\"",
+    "start": "concurrently \"npm run serverstart\" \"npm run clientstart\"",
+    "serverstart": "node api-server.js",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -25,6 +27,7 @@
     "@angular/router": "~3.1.0",
     "@angular/upgrade": "~2.1.0",
     "angular-in-memory-web-api": "~0.1.5",
+    "angular2-uuid": "^1.1.0",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

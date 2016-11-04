@@ -6,12 +6,13 @@ import { Score } from './score';
   templateUrl: 'app/gameForm.component.html',
 })
 export class GameFormComponent {
-    @Output() saveScore = new EventEmitter<Score>();
+	@Output() saveScore = new EventEmitter<Score>();
+	@Input() scoreId : string;
 
-    goals1 : number;
-    goals2 : number;
-    onSubmit() : void {
-        const score = {id:0, goals1:this.goals1, goals2:this.goals2}
-        this.saveScore.emit(score);
-    }
+	goals1 : number;
+	goals2 : number;
+	onSubmit() : void {
+		const score = {id:this.scoreId, goals1:this.goals1, goals2:this.goals2}
+		this.saveScore.emit(score);
+	}
 } 
