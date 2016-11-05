@@ -1,42 +1,42 @@
 import { Component, Input } from '@angular/core';
 import { UUID } from 'angular2-uuid';
-import { Score } from './score';
-import { ScoreRepositoryService } from './services/scoreRepositoryService';
+import { Match } from './match';
+import { MatchRepositoryService } from './services/matchRepositoryService';
 
 @Component({
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 })
 export class AppComponent {
-	scores: Score[] = [];
-	scoreRepository : ScoreRepositoryService;
-	nextScoreId: string;
+	matches: Match[] = [];
+	matchRepository : MatchRepositoryService;
+	nextMatchId: string;
 	
-	constructor(scoreRepositoryService: ScoreRepositoryService) {
-		this.scoreRepository = scoreRepositoryService;
+	constructor(matchRepositoryService: MatchRepositoryService) {
+		this.matchRepository = matchRepositoryService;
 	}
 
 	ngOnInit() {
-		this.loadScoresFromServer();
-		this.generateNextScoreId();
+		this.loadMatchesFromServer();
+		this.generateNextMatchId();
 	}
 
-	loadScoresFromServer() {
-		this.scoreRepository
+	loadMatchesFromServer() {
+		this.matchRepository
 			.getAll()
-			.then((scoresFromServer) => this.scores = scoresFromServer);
+			.then((matchesFromServer) => this.matches = matchesFromServer);
 	}
 
-	saveScore(score:Score) : void {
-		this.scores.push(score);
-		this.scoreRepository.add(score)
+	saveMatch(match:Match) : void {
+		this.matches.push(match);
+		this.matchRepository.add(match)
 			.then(() => {
-				this.generateNextScoreId();
-				this.loadScoresFromServer();
+				this.generateNextMatchId();
+				this.loadMatchesFromServer();
 			});
 	}
 
-	generateNextScoreId():void {
-		this.nextScoreId = UUID.UUID();
+	generateNextMatchId():void {
+		this.nextMatchId = UUID.UUID();
 	}
 }

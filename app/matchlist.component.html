@@ -1,0 +1,14 @@
+<h1>Matches</h1>
+
+<table>
+	<thead>
+		<th> Match </th>
+		<th> Goals1 </th>
+		<th> Goals2 </th>
+	</thead>
+	<tr *ngFor="let match of matches; let i = index">
+		<td> {{match.id}} </td>
+		<td> {{match.goals1}} </td>
+		<td> {{match.goals2}} </td>
+	<tr>
+</table>

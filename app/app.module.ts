@@ -5,15 +5,15 @@ import { HttpModule }      from '@angular/http';
 
 import { AppComponent}   from './app.component';
 import { GameFormComponent } from './gameForm.component';
-import { ScoreListComponent } from './scorelist.component';
+import { MatchListComponent } from './matchlist.component';
 
-import { ScoreRepositoryService } from './services/scoreRepositoryService';
+import { MatchRepositoryService } from './services/matchRepositoryService';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, GameFormComponent, ScoreListComponent ],
+  declarations: [ AppComponent, GameFormComponent, MatchListComponent ],
   bootstrap:    [ AppComponent ],
-  providers:    [ ScoreRepositoryService ],
+  providers:    [ MatchRepositoryService ],
 })
 export class AppModule { }
 
